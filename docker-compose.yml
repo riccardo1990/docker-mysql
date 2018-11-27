@@ -1,0 +1,18 @@
+# docker-compose.yml
+
+version: '3'
+volumes:
+  data-volume: {}
+services:
+  mysql:
+    image: docker-mymysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: gestionale
+      MYSQL_USER: app
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+     - C:/Users/rbarbero/Sviluppo/WorkspaceTrenota/docker-myMysql/resources/docker-sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+          # - data-volume:/var/lib/mysql
